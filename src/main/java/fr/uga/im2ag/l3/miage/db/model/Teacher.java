@@ -1,38 +1,38 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
-import java.util.Objects;
+import java.util.List;
 
 public class Teacher extends Person{
 
-    private Subject subject;
+    private Subject teaching;
+    private List<Student> favorites;
+    private GraduationClass heading;
 
-    public Subject getSubject() {
-        return subject;
+    public Subject getTeaching() {
+        return teaching;
     }
 
-    public Teacher setSubject(Subject subject) {
-        this.subject = subject;
+    public Teacher setTeaching(Subject teaching) {
+        this.teaching = teaching;
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Teacher teacher = (Teacher) o;
-        return Objects.equals(getSubject(), teacher.getSubject());
+    public List<Student> getFavorites() {
+        return favorites;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getSubject());
+    public Teacher setFavorites(List<Student> favorites) {
+        this.favorites = favorites;
+        return this;
     }
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "subject=" + subject +
-                '}';
+    public GraduationClass getHeading() {
+        return heading;
     }
+
+    public Teacher setHeading(GraduationClass heading) {
+        this.heading = heading;
+        return this;
+    }
+
 }

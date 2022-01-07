@@ -1,10 +1,15 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
-import java.util.Objects;
+import java.util.Date;
 
 public class Subject {
-    Long id;
-    String name;
+
+    private Long id;
+    private String name;
+    private Integer points;
+    private Float hours;
+    private Date start;
+    private Date end;
 
     public Long getId() {
         return id;
@@ -24,24 +29,39 @@ public class Subject {
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Subject subject = (Subject) o;
-        return Objects.equals(getId(), subject.getId()) && Objects.equals(getName(), subject.getName());
+    public Integer getPoints() {
+        return points;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
+    public Subject setPoints(Integer points) {
+        this.points = points;
+        return this;
     }
 
-    @Override
-    public String toString() {
-        return "Subject{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public Float getHours() {
+        return hours;
+    }
+
+    public Subject setHours(Float hours) {
+        this.hours = hours;
+        return this;
+    }
+
+    public Date getStart() {
+        return start;
+    }
+
+    public Subject setStart(Date start) {
+        this.start = start;
+        return this;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public Subject setEnd(Date end) {
+        this.end = end;
+        return this;
     }
 }

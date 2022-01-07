@@ -1,12 +1,14 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
-import java.util.Objects;
+import java.util.Date;
 
 public abstract class Person {
 
     private Long id;
+    private Gender gender;
     private String firstName;
     private String lastName;
+    private Date birth;
 
     public Long getId() {
         return id;
@@ -30,25 +32,31 @@ public abstract class Person {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public Person setId(Long id) {
+        this.id = id;
+        return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName());
+    public Date getBirth() {
+        return birth;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName());
+    public Person setBirth(Date birth) {
+        this.birth = birth;
+        return this;
     }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public Person setGender(Gender gender) {
+        this.gender = gender;
+        return this;
+    }
+
+    public enum Gender {
+        FEMALE, MALE, FLUID
+    }
+
 }

@@ -1,31 +1,27 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
-import java.util.Objects;
+import java.util.List;
 
-public class Student extends Person{
+public class Student extends Person {
 
-    private Class assignedClass;
+    private GraduationClass belongTo;
+    private List<Grade> grades;
 
-    public Class getAssignedClass() {
-        return assignedClass;
+    public GraduationClass getBelongTo() {
+        return belongTo;
     }
 
-    public Student setAssignedClass(Class assignedClass) {
-        this.assignedClass = assignedClass;
+    public Student setBelongTo(GraduationClass belongTo) {
+        this.belongTo = belongTo;
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Student student = (Student) o;
-        return Objects.equals(assignedClass, student.assignedClass);
+    public List<Grade> getGrades() {
+        return grades;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), assignedClass);
+    public Student setGrades(List<Grade> grades) {
+        this.grades = grades;
+        return this;
     }
 }
