@@ -6,8 +6,6 @@
              version="2.0">
     <persistence-unit name="JPA-HBM">
 
-        <class>fr.uga.im2ag.l3.miage.db.model.Subject</class>
-
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/ave"/>
             <property name="javax.persistence.jdbc.user" value="admin"/>

@@ -1,26 +1,49 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+import fr.uga.im2ag.l3.miage.db.dao.api.GradeRepository;
+import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.*;
+class SubjectTest extends Base{
 
-class SubjectTest {
-
-    private EntityManager entityManager;
+    private SubjectRepository subjectRepository;
 
     @BeforeEach
     public void setup() {
-        entityManager = Persistence.createEntityManagerFactory("TEST")
-                .createEntityManager();
-
+        subjectRepository = daoFactory.newSubjectRepository(entityManager);
     }
 
     @Test
     void shouldSaveSubject() throws Exception {
+
+        final var subject = Fixtures.createSubject();
+
+        entityManager.getTransaction().begin();
+        subjectRepository.save(subject);
+        entityManager.getTransaction().commit();
+
+        Subject pSubject = subjectRepository.findById(Subject.class, subject.getId());
+        assertThat(pSubject).isNotNull();
+        assertThat(pSubject).isNotSameAs(subject);
+        assertThat(pSubject.getName()).isEqualTo(subject.getName());
+
+    }
+
+    @Test
+    void shouldUpdateSubject() throws Exception {
+
+    }
+
+    @Test
+    void shouldDeleteSubject() throws Exception {
+
+    }
+
+    @Test
+    void shouldFindSubjectsTaughtByManyTeacher() throws Exception {
 
     }
 

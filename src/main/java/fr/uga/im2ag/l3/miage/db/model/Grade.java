@@ -4,7 +4,7 @@ public class Grade {
 
     private Long id;
     private Subject subject;
-    private Integer value;
+    private Float value;
     private Float weight;
 
     public Long getId() {
@@ -20,11 +20,11 @@ public class Grade {
         return this;
     }
 
-    public Integer getValue() {
+    public Float getValue() {
         return value;
     }
 
-    public Grade setValue(Integer value) {
+    public Grade setValue(Float value) {
         this.value = value;
         return this;
     }

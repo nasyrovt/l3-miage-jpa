@@ -7,6 +7,11 @@
     <persistence-unit name="TEST">
 
         <class>fr.uga.im2ag.l3.miage.db.model.Subject</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Grade</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Person</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Student</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.Teacher</class>
+        <class>fr.uga.im2ag.l3.miage.db.model.GraduationClass</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1;"/>

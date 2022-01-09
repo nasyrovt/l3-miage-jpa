@@ -1,4 +1,4 @@
-package fr.uga.im2ag.l3.miage.db.dao;
+package fr.uga.im2ag.l3.miage.db.dao.api;
 
 import java.util.List;
 
@@ -17,10 +17,9 @@ public interface Repository<T, I> {
 
     /**
      * Delete an entity.
-     * @param entityClass class of the entity to remove
-     * @param id id of the entity to remove
+     * @param entity  entity to remove
      */
-    void  delete(Class<T> entityClass, I id);
+    void  delete(T entity);
 
     /**
      * Retrieve an entity by id.
@@ -28,7 +27,7 @@ public interface Repository<T, I> {
      * @param id id of the entity to remove
      * @return the entity of null
      */
-    T get(Class<T> entityClass, I id);
+    T findById(Class<T> entityClass, I id);
 
     /**
      * Retrieve all entities of a given type.

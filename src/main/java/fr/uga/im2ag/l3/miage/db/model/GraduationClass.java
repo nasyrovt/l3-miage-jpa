@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GraduationClass {
@@ -45,4 +46,10 @@ public class GraduationClass {
         return this;
     }
 
+    public void addStudent(Student student) {
+        if(students == null){
+            students = new ArrayList<>();
+        }
+        students.add(student);
+    }
 }
