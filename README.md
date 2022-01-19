@@ -10,7 +10,7 @@
 
 Voici le modèle de donnée.
 
-[]!(https://github.com/bordigoni/l3-miage-jpa/blob/main/model.png?raw=true)
+[]!(/assets/images/model.png)
 
 Vous noterez que chaque relation a une cardinalité. Que certaines relations sont uni directionnelles et d'autre non.
 
