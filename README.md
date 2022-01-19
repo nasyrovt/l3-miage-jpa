@@ -10,7 +10,8 @@
 
 Voici le modèle de donnée.
 
-[]!(/assets/images/model.png)
+![model](https://user-images.githubusercontent.com/12293102/150217615-569407fd-3b8a-45b6-9d2e-fbf965ab8e98.png)
+
 
 Vous noterez que chaque relation a une cardinalité. Que certaines relations sont uni directionnelles et d'autre non.
 
