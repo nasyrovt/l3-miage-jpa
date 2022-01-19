@@ -10,6 +10,6 @@ public interface TeacherRepository extends Repository<Teacher, Long> {
      * @param name name of the graduation class
      * @return a teacher matching the class or null
      */
-    Teacher findFHeadingGraduationClassByYearAndName(Integer year, String name);
+    Teacher findHeadingGraduationClassByYearAndName(Integer year, String name);
 
 }

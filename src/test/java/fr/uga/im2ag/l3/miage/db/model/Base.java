@@ -13,7 +13,7 @@ public abstract class Base {
     protected DaoFactory daoFactory = new DaoFactory();
 
     @BeforeEach
-    public void setup() {
+    public final void setup() {
         entityManager = Persistence.createEntityManagerFactory("TEST")
                 .createEntityManager();
     }

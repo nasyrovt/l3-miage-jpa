@@ -2,6 +2,7 @@ package fr.uga.im2ag.l3.miage.db.dao.impl;
 
 import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
+import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
 import javax.persistence.EntityManager;
 import java.util.Collection;
@@ -35,7 +36,7 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
     }
 
     @Override
-    public Collection<Subject> findSubjectsTaughtByManyTeacher() {
+    public Collection<Teacher> findTeachers(Long id) {
         return null;
     }
 }

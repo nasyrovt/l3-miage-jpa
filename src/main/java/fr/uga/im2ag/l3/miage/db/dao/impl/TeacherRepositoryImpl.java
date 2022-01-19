@@ -19,7 +19,7 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
 
 
     @Override
-    public Teacher findFHeadingGraduationClassByYearAndName(Integer year, String name) {
+    public Teacher findHeadingGraduationClassByYearAndName(Integer year, String name) {
         return null;
     }
 
