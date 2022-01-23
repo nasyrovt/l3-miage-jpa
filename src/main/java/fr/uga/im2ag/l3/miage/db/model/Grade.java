@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+// TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class Grade {
 
     private Long id;

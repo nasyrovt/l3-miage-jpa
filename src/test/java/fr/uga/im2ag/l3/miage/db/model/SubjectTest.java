@@ -1,22 +1,30 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
 import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SubjectTest extends Base{
+class SubjectTest extends Base {
 
-    private SubjectRepository subjectRepository;
+    SubjectRepository subjectRepository;
 
     @BeforeEach
-    public void before() {
+    void before() {
         subjectRepository = daoFactory.newSubjectRepository(entityManager);
     }
 
+    @AfterEach
+    void after() {
+        if (entityManager.getTransaction().isActive()) {
+            entityManager.getTransaction().rollback();
+        }
+    }
+
     @Test
-    void shouldSaveSubject() throws Exception {
+    void shouldSaveSubject() {
 
         final var subject = Fixtures.createSubject();
 
@@ -26,26 +34,24 @@ class SubjectTest extends Base{
         entityManager.detach(subject);
 
         Subject pSubject = subjectRepository.findById(Subject.class, subject.getId());
-        assertThat(pSubject)
-                .isNotNull()
-                .isNotSameAs(subject);
+        assertThat(pSubject).isNotNull().isNotSameAs(subject);
         assertThat(pSubject.getName()).isEqualTo(subject.getName());
 
     }
 
     @Test
-    void shouldUpdateSubject() throws Exception {
-
+    void shouldUpdateSubject() {
+        // TODO
     }
 
     @Test
-    void shouldDeleteSubject() throws Exception {
-
+    void shouldDeleteSubject() {
+        // TODO
     }
 
     @Test
-    void shouldFindSubjectsTaughtByManyTeacher() throws Exception {
-
+    void shouldFindTeachersForSubject() {
+        // TODO
     }
 
 }

@@ -17,26 +17,29 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
 
     @Override
     public void save(Subject entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(Subject entity) {
-
+        // TODO
     }
 
     @Override
     public Subject findById(Class<Subject> entityClass, Long id) {
+        // TODO
         return null;
     }
 
     @Override
     public List<Subject> getAll(Class<Subject> entityClass) {
+        // TODO
         return null;
     }
 
     @Override
     public Collection<Teacher> findTeachers(Long id) {
+        // TODO
         return null;
     }
 }

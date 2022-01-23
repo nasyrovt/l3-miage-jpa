@@ -20,31 +20,35 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
 
     @Override
     public List<Grade> findHighestGrades(int limit) {
+        // TODO
         return null;
     }
 
     @Override
     public List<Grade> findHighestGradesBySubject(int limit, Subject subject) {
+        // TODO
         return null;
     }
 
     @Override
     public void save(Grade entity) {
-
+        // TODO
     }
 
     @Override
     public void delete(Grade entity) {
-
+        // TODO
     }
 
     @Override
     public Grade findById(Class<Grade> entityClass, Long id) {
+        // TODO
         return null;
     }
 
     @Override
     public List<Grade> getAll(Class<Grade> entityClass) {
+        // TODO
         return null;
     }
 }

@@ -3,6 +3,7 @@ package fr.uga.im2ag.l3.miage.db.model;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class GraduationClass {
 
     private Long id;
@@ -47,7 +48,7 @@ public class GraduationClass {
     }
 
     public void addStudent(Student student) {
-        if(students == null){
+        if (students == null) {
             students = new ArrayList<>();
         }
         students.add(student);

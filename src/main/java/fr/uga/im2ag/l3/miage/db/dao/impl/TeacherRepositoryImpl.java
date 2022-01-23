@@ -20,26 +20,31 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
 
     @Override
     public Teacher findHeadingGraduationClassByYearAndName(Integer year, String name) {
+        // TODO
         return null;
     }
 
     @Override
     public void save(Teacher entity) {
+        // TODO
 
     }
 
     @Override
     public void delete(Teacher entity) {
+        // TODO
 
     }
 
     @Override
     public Teacher findById(Class<Teacher> entityClass, Long id) {
+        // TODO
         return null;
     }
 
     @Override
     public List<Teacher> getAll(Class<Teacher> entityClass) {
+        // TODO
         return null;
     }
 }

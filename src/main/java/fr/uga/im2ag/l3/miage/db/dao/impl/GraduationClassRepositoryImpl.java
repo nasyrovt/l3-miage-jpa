@@ -14,26 +14,31 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
 
     @Override
     public GraduationClass findByYearAndName(Integer year, String name) {
+        // TODO
         return null;
     }
 
     @Override
     public void save(GraduationClass entity) {
+        // TODO
 
     }
 
     @Override
     public void delete(GraduationClass entity) {
+        // TODO
 
     }
 
     @Override
     public GraduationClass findById(Class<GraduationClass> entityClass, Long id) {
+        // TODO
         return null;
     }
 
     @Override
     public List<GraduationClass> getAll(Class<GraduationClass> entityClass) {
+        // TODO
         return null;
     }
 }

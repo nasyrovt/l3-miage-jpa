@@ -2,7 +2,8 @@ package fr.uga.im2ag.l3.miage.db.model;
 
 import java.util.List;
 
-public class Teacher extends Person{
+// TODO ajouter une named query pour une des requêtes à faire dans le repository
+public class Teacher extends Person {
 
     private Subject teaching;
     private List<Student> favorites;
