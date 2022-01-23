@@ -13,7 +13,7 @@ Vous avez deux scéance de TP pour en venir à bout, vous être libre de continu
 
 Voici le modèle de données.
 
-![model](https://raw.githubusercontent.com/bordigoni/l3-miage-jpa/main/assets/model.png)
+![model](https://raw.githubusercontent.com/bordigoni/l3-miage-jpa/main/assets/images/model.png)
 
 ⚠️Dans ce modèle il manque des informations importantes
 1. Il ne peut y avoir qu'**une** promotion ayant un nom donné par an.
