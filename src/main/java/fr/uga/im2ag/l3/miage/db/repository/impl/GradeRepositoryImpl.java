@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.dao.impl;
+package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.GradeRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
 import fr.uga.im2ag.l3.miage.db.model.Grade;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 
@@ -41,13 +41,13 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
     }
 
     @Override
-    public Grade findById(Class<Grade> entityClass, Long id) {
+    public Grade findById(Long id) {
         // TODO
         return null;
     }
 
     @Override
-    public List<Grade> getAll(Class<Grade> entityClass) {
+    public List<Grade> getAll() {
         // TODO
         return null;
     }

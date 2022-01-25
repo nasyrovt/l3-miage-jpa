@@ -1,4 +1,4 @@
-package fr.uga.im2ag.l3.miage.db.model;
+package fr.uga.im2ag.l3.miage.db.repository;
 
 import com.github.javafaker.Faker;
 import fr.uga.im2ag.l3.miage.db.model.Grade;
@@ -6,6 +6,7 @@ import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.model.Person;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
+import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;

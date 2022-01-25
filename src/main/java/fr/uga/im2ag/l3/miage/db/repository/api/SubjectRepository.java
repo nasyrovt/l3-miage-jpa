@@ -1,4 +1,4 @@
-package fr.uga.im2ag.l3.miage.db.dao.api;
+package fr.uga.im2ag.l3.miage.db.repository.api;
 
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;

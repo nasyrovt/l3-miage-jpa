@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.dao.impl;
+package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.StudentRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 
 import javax.persistence.EntityManager;
@@ -31,13 +31,13 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
     }
 
     @Override
-    public Student findById(Class<Student> entityClass, Long id) {
+    public Student findById(Long id) {
         // TODO
         return null;
     }
 
     @Override
-    public List<Student> getAll(Class<Student> entityClass) {
+    public List<Student> getAll() {
         // TODO
         return null;
     }

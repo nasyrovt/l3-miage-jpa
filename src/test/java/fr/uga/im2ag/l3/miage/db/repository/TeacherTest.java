@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.model;
+package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.TeacherRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,16 +23,6 @@ class TeacherTest extends Base {
 
     @Test
     void shouldSaveTeacher()  {
-        // TODO
-    }
-
-    @Test
-    void shouldUpdateTeacher() {
-        // TODO
-    }
-
-    @Test
-    void shouldDeleteTeacher() {
         // TODO
     }
 

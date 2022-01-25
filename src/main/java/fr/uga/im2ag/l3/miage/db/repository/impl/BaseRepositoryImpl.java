@@ -1,4 +1,4 @@
-package fr.uga.im2ag.l3.miage.db.dao.impl;
+package fr.uga.im2ag.l3.miage.db.repository.impl;
 
 import javax.persistence.EntityManager;
 

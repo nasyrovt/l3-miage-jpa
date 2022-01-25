@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.model;
+package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.GradeRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,13 +27,8 @@ class GradeTest extends Base {
     }
 
     @Test
-    void shouldUpdateGrade() {
-        // TODO
-    }
-
-    @Test
-    void shouldDeleteGrade() {
-        // TODO
+    void shouldFailUpgradeGrade() {
+        // TODO, ici tester que la mise à jour n'a pas eu lieu.
     }
 
     @Test

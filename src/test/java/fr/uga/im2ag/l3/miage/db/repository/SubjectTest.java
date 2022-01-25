@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.model;
+package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,20 +33,10 @@ class SubjectTest extends Base {
         entityManager.getTransaction().commit();
         entityManager.detach(subject);
 
-        Subject pSubject = subjectRepository.findById(Subject.class, subject.getId());
+        var pSubject = subjectRepository.findById(subject.getId());
         assertThat(pSubject).isNotNull().isNotSameAs(subject);
         assertThat(pSubject.getName()).isEqualTo(subject.getName());
 
-    }
-
-    @Test
-    void shouldUpdateSubject() {
-        // TODO
-    }
-
-    @Test
-    void shouldDeleteSubject() {
-        // TODO
     }
 
     @Test

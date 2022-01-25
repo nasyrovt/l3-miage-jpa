@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.dao.impl;
+package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
@@ -26,13 +26,13 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
     }
 
     @Override
-    public Subject findById(Class<Subject> entityClass, Long id) {
+    public Subject findById(Long id) {
         // TODO
         return null;
     }
 
     @Override
-    public List<Subject> getAll(Class<Subject> entityClass) {
+    public List<Subject> getAll() {
         // TODO
         return null;
     }

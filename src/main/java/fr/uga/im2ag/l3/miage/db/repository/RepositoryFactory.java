@@ -1,19 +1,19 @@
-package fr.uga.im2ag.l3.miage.db.dao;
+package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.GradeRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.GraduationClassRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.StudentRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.SubjectRepository;
-import fr.uga.im2ag.l3.miage.db.dao.api.TeacherRepository;
-import fr.uga.im2ag.l3.miage.db.dao.impl.GradeRepositoryImpl;
-import fr.uga.im2ag.l3.miage.db.dao.impl.GraduationClassRepositoryImpl;
-import fr.uga.im2ag.l3.miage.db.dao.impl.StudentRepositoryImpl;
-import fr.uga.im2ag.l3.miage.db.dao.impl.SubjectRepositoryImpl;
-import fr.uga.im2ag.l3.miage.db.dao.impl.TeacherRepositoryImpl;
+import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
+import fr.uga.im2ag.l3.miage.db.repository.impl.GradeRepositoryImpl;
+import fr.uga.im2ag.l3.miage.db.repository.impl.GraduationClassRepositoryImpl;
+import fr.uga.im2ag.l3.miage.db.repository.impl.StudentRepositoryImpl;
+import fr.uga.im2ag.l3.miage.db.repository.impl.SubjectRepositoryImpl;
+import fr.uga.im2ag.l3.miage.db.repository.impl.TeacherRepositoryImpl;
 
 import javax.persistence.EntityManager;
 
-public class DaoFactory {
+public class RepositoryFactory {
 
     public SubjectRepository newSubjectRepository(EntityManager entityManager) {
         return new SubjectRepositoryImpl(entityManager);

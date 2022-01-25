@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.model;
+package fr.uga.im2ag.l3.miage.db.repository;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.GraduationClassRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,15 +26,6 @@ class GraduationClassTest extends Base {
         // TODO
     }
 
-    @Test
-    void shouldUpdateClass() {
-        // TODO
-    }
-
-    @Test
-    void shouldDeleteClass() {
-        // TODO
-    }
 
     @Test
     void shouldFindByYearAndName() {

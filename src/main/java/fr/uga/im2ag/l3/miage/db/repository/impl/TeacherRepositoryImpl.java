@@ -1,6 +1,6 @@
-package fr.uga.im2ag.l3.miage.db.dao.impl;
+package fr.uga.im2ag.l3.miage.db.repository.impl;
 
-import fr.uga.im2ag.l3.miage.db.dao.api.TeacherRepository;
+import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
 import javax.persistence.EntityManager;
@@ -37,13 +37,13 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
     }
 
     @Override
-    public Teacher findById(Class<Teacher> entityClass, Long id) {
+    public Teacher findById(Long id) {
         // TODO
         return null;
     }
 
     @Override
-    public List<Teacher> getAll(Class<Teacher> entityClass) {
+    public List<Teacher> getAll() {
         // TODO
         return null;
     }
