@@ -26,13 +26,13 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
 
     @Override
     public void save(Teacher entity) {
-        // TODO
+        entityManager.persist(entity);
 
     }
 
     @Override
     public void delete(Teacher entity) {
-        // TODO
+        entityManager.remove(entity);
 
     }
 

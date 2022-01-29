@@ -20,14 +20,12 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
 
     @Override
     public void save(GraduationClass entity) {
-        // TODO
-
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(GraduationClass entity) {
-        // TODO
-
+        entityManager.remove(entity);
     }
 
     @Override

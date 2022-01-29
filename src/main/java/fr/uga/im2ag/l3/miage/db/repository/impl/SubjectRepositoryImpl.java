@@ -17,12 +17,12 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
 
     @Override
     public void save(Subject entity) {
-        // TODO
+        entityManager.persist(entity);
     }
 
     @Override
     public void delete(Subject entity) {
-        // TODO
+        entityManager.remove(entity);
     }
 
     @Override

@@ -32,17 +32,16 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
 
     @Override
     public void save(Grade entity) {
-        // TODO
+       entityManager.persist(entity);
     }
 
     @Override
     public void delete(Grade entity) {
-        // TODO
+        entityManager.remove(entity);
     }
 
     @Override
     public Grade findById(Long id) {
-        // TODO
         return null;
     }
 

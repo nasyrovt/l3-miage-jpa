@@ -20,13 +20,13 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
 
     @Override
     public void save(Student entity) {
-        // TODO
+        entityManager.persist(entity);
 
     }
 
     @Override
     public void delete(Student entity) {
-        // TODO
+        entityManager.remove(entity);
 
     }
 
