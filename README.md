@@ -43,13 +43,14 @@ Voici le modèle de données.
 * **Les classes de tests existent et sont à completer** 
 
   `src/test/java` =>`fr.uga.im2ag.l3.miage.db.repository`
+  
 
 ## Ce que vous devez faire
 
 Le but est de :
 
 1. Mapper les classes sur la base, grâce aux annotations JPA. Vous devrez respecter toutes les contraintes décrites du modèle (il pourrait y en avoir d'autre mais il y bien assez à faire).
-1. Coder puis tester les Repository avec JUnit grâce une base de données en mémoire (H2).
+1. Coder puis tester les Repository avec JUnit grâce une base de données en mémoire (H2). Vous n'avez acune configuration à faire pour la base de données, tout fonctionne sans installation supplémentaire. En revanche vous ne pourrez pas visualiser vos données (à moins de les afficher dans la console).
 
 **Partout ou il a y un methode à implémenter il y a un TODO** 
 
@@ -71,8 +72,7 @@ Le but est de :
         * Person
         * Student
         * Teacher
-6. Implementer `save()` and `findById()` dans `SubjectRepositoryImpl`
-7. Exécuter `SubjectTest` (partiellement codé), le test devrait passer si le mapping fonctionne.
+6. Exécuter `SubjectTest` (partiellement codé), le test devrait passer si le mapping fonctionne.
 
    ⚠️ certaines erreurs dans le mapping ne feront pas nécessairement planter votre test, vérifier les logs, il ne doit plus y avoir d'erreur.
 
@@ -94,9 +94,8 @@ Voici l'ordre dans lequel l'implémentation doit être réalisée pour optimiser
     1. Commitez la transaction pour executer les requêtes en base
     2. Pensez à appeler `entityManager.detach(...)` pour retirer les entités avant de les charger de nouveau
     3. Effectuer des assertions simples, mais suffisantes pour valider les opérations.
-* Utiliser la classe `Fixtures` pour créer des objets prêts à devenir persistant, les données qu'ils contiennent sont généré aléatoirement.
+* Utiliser la classe `Fixtures` pour créer des objets prêts à devenir persistant, les données qu'ils contiennent sont générées aléatoirement.
 * Sur l'ensemble de vos méthodes de test, vous devez appeler toutes les méthodes de votre repository.
-* Vous devez optionnellement tester les mises à jour
 2. Recommencez pour chaque Repository
 
 Good luck! 🍀
@@ -106,14 +105,14 @@ Good luck! 🍀
 * Mettre votre nom en haut de ce README
 * Zipper le répertoire `src` + README.md puis le nommer `l3-miage-jpa-prenom1-nom1-prenom2-nom2.zip`
 * Déposer sur le moodle.
-* Si vous souhaitez ajouter des commentaires, merci de le faire dans ce README (sections commentaires) et du coup de le joindre au zip.
+* Si vous souhaitez ajouter des commentaires, merci de le faire dans ce README (sections commentaires ci-dessous).
 
 Les sources rendues doivent compiler et les tests doivent passer.
 C'est-à-dire que vous ne devez pas ajouter de dépendances dans `pom.xml`, vous êtes en revanche libres d'ajouter des classes, mais ça ne devrait pas être nécessaire.
 
 **Mieux vaut une implémentation partielle, mais bien testé qu'une implémentation complète, peu ou mal testé, car il sera difficile d'évaluer sa qualité.**
 
-## Commentaires de l'étudiant
+## Commentaires
 
 Section en option si vous souhaitez justifier certains de vos choix dans votre implémentation. 
 
