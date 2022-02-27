@@ -32,19 +32,20 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
 
     @Override
     public Student findById(Long id) {
-        // TODO
-        return null;
+        
+        return entityManager.find(Student.class, id);
     }
 
     @Override
     public List<Student> getAll() {
-        // TODO
-        return null;
+        String jql = "select * FROM Student";
+        return entityManager.createQuery(jql, Student.class).getResultList();
     }
 
     @Override
     public List<Student> findStudentHavingGradeAverageAbove(float minAverage) {
         // TODO
-        return null;
+    	String jql = "select firstName , lastName, min(value) as min from Student join grades group by firstName , lastName having min>"+minAverage;
+        return entityManager.createQuery(jql, Student.class).getResultList();
     }
 }

@@ -15,7 +15,9 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
     @Override
     public GraduationClass findByYearAndName(Integer year, String name) {
         // TODO
-        return null;
+    	String jql = "select * from Graduation where year="+year + "and name="+name;
+    	return entityManager.createQuery(jql,GraduationClass.class).getSingleResult();
+        
     }
 
     @Override
@@ -31,12 +33,12 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
     @Override
     public GraduationClass findById(Long id) {
         // TODO
-        return null;
+        return entityManager.find(GraduationClass.class, id);
     }
 
     @Override
     public List<GraduationClass> getAll() {
-        // TODO
-        return null;
+        String jql = "select * from Graduation";
+        return entityManager.createQuery(jql,GraduationClass.class).getResultList();
     }
 }

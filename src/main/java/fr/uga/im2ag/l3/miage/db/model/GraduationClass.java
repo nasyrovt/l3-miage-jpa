@@ -3,12 +3,25 @@ package fr.uga.im2ag.l3.miage.db.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Graduation")
 // TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class GraduationClass {
-
+	@Id
+	@GeneratedValue()
+	@Column(name = "id",nullable=false) 
     private Long id;
+	@Column(name = "name")
     private String name;
+	@Column(name = "year")
     private Integer year;
+    @OneToMany
     private List<Student> students;
 
     public Long getId() {

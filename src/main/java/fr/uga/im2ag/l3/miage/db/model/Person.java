@@ -2,11 +2,28 @@ package fr.uga.im2ag.l3.miage.db.model;
 
 import java.util.Date;
 
-public abstract class Person {
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+@Inheritance()
+@Entity
 
+@DiscriminatorValue(value= "Person")
+public abstract class Person {
+	
+	@Id
+	@GeneratedValue()
+	@Column(name = "id")
+	
     private Long id;
     private Gender gender;
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
     private Date birth;
 
