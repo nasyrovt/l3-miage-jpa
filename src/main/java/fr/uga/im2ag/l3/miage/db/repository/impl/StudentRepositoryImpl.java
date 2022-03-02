@@ -4,6 +4,8 @@ import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 
 import javax.persistence.EntityManager;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepositoryImpl extends BaseRepositoryImpl implements StudentRepository {
@@ -45,7 +47,17 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
     @Override
     public List<Student> findStudentHavingGradeAverageAbove(float minAverage) {
         // TODO
-    	String jql = "select firstName , lastName, min(value) as min from Student join grades group by firstName , lastName having min>"+minAverage;
-        return entityManager.createQuery(jql, Student.class).getResultList();
+    String jql = "select  s.firstName, s.lastName from Student s join Grade g "
+    			+ "group by s.firstName , s.lastName HAVING avg(g.value*g.weight)>"+minAverage;
+    	
+    List<Object[]> results =  entityManager.createQuery(jql, Object[].class).setMaxResults(5).getResultList();
+        
+        List<Student> students = new ArrayList<Student>(); 
+        for(Object r : results) {
+        	System.out.println(r);
+        }
+        
+        return null ;
+    	
     }
 }

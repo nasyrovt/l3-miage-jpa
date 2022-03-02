@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +43,10 @@ class SubjectTest extends Base {
     @Test
     void shouldFindTeachersForSubject() {
         // TODO
+    	
     	subjectRepository.findTeachers(null);
+    	subjectRepository.findTeachers((long) 200);
+    	
     }
 
 }

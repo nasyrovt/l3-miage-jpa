@@ -1,8 +1,11 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import javax.persistence.EntityManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,8 +30,9 @@ class GraduationClassTest extends Base {
     @Test
     void shouldSaveClass() {
         // TODO
-    	final var gClass = Fixtures.createClass() ; 
-    	
+   	final var gClass = Fixtures.createClass() ; 
+   	
+   	
     	entityManager.getTransaction().begin();
     	classRepository.save(gClass);
     	entityManager.getTransaction().commit();
@@ -43,7 +47,17 @@ class GraduationClassTest extends Base {
 
     @Test
     void shouldFindByYearAndName() {
-        // TODO
+    	final var gClass = Fixtures.createClass();
+    	gClass.setName("Math");
+    	gClass.setYear(2012);
+    	gClass.setStudents(null);
+    	entityManager.getTransaction().begin();
+    	entityManager.persist(gClass);
+    	entityManager.getTransaction().commit();
+   	 	entityManager.detach(gClass);
+   	 	
+    	classRepository.findByYearAndName(2012, "Math");
+       // classRepository.findByYearAndName(2012, "Math");
     }
 
 }

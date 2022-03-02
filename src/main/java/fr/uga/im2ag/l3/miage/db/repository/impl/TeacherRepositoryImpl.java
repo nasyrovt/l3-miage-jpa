@@ -46,7 +46,7 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
     @Override
     public List<Teacher> getAll() {
         // TODO
-    	String jql = "select * FROM Teacher";
+    	String jql = "select t FROM Teacher t";
         return entityManager.createQuery(jql, Teacher.class).getResultList();
     }
 }

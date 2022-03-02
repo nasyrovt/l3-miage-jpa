@@ -1,5 +1,6 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
+
 import fr.uga.im2ag.l3.miage.db.repository.api.GradeRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;

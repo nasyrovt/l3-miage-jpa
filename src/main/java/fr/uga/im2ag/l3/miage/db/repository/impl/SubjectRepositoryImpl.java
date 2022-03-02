@@ -1,6 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
 import fr.uga.im2ag.l3.miage.db.repository.api.SubjectRepository;
+import fr.uga.im2ag.l3.miage.db.model.Grade;
 import fr.uga.im2ag.l3.miage.db.model.Subject;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
@@ -34,16 +35,15 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
 
     @Override
     public List<Subject> getAll() {
-        String jql = "select * from Subject";
+        String jql = "select s from Subject s ";
         return entityManager.createQuery(jql, Subject.class).getResultList();
     }
 
     @Override
     public Collection<Teacher> findTeachers(Long id) {
         // TODO
-        String jql = "select * from Subject where id="+id;
+    	 String jql = "select t from Teacher t where t.id="+id;
     	// Collection<Teacher> coll = new Collection<Teacher>(entityManager.createQuery(jql, Subject.class).getResultList());
-        // return (Collection<Teacher> )entityManager.createQuery(jql, Subject.class).getResultList() ;
-        return null;
+        return (Collection<Teacher> )entityManager.createQuery(jql, Teacher.class).getResultList() ;
     }
 }

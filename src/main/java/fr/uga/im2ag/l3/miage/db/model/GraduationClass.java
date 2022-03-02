@@ -1,6 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,16 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
-@Table(name = "Graduation")
+
 // TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class GraduationClass {
 	@Id
 	@GeneratedValue()
-	@Column(name = "id",nullable=false) 
+	@Column(name = "id") 
     private Long id;
-	@Column(name = "name")
+	@Column(name = "Grad_name")
     private String name;
-	@Column(name = "year")
+	@Column(name = "Grad_year")
     private Integer year;
     @OneToMany
     private List<Student> students;

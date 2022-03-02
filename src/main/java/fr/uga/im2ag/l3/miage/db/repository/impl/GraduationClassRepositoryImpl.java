@@ -4,6 +4,8 @@ import fr.uga.im2ag.l3.miage.db.repository.api.GraduationClassRepository;
 import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import java.util.List;
 
 public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements GraduationClassRepository {
@@ -15,9 +17,21 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
     @Override
     public GraduationClass findByYearAndName(Integer year, String name) {
         // TODO
-    	String jql = "select * from Graduation where year="+year + "and name="+name;
-    	return entityManager.createQuery(jql,GraduationClass.class).getSingleResult();
-        
+    	
+    	
+    	TypedQuery<GraduationClass> query = entityManager.createQuery(
+    			  "SELECT g FROM GraduationClass AS g WHERE g.name = :name AND g.year = :year" , GraduationClass.class);
+    	System.out.print("On est la");		
+    	if( query
+    			  .setParameter("name", name)
+    			  .setParameter("year", year)
+    			  .getResultList().size() ==1)
+    	{ return (GraduationClass) query ; }
+    	
+    	else { 
+    		return null ;
+    	}
+    			
     }
 
     @Override
@@ -38,7 +52,7 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
 
     @Override
     public List<GraduationClass> getAll() {
-        String jql = "select * from Graduation";
+        String jql = "select g from GraduationClass g ";
         return entityManager.createQuery(jql,GraduationClass.class).getResultList();
     }
 }

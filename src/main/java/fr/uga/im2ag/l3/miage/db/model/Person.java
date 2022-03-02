@@ -1,5 +1,5 @@
 package fr.uga.im2ag.l3.miage.db.model;
-
+import javax.persistence.InheritanceType;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,21 +9,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
-@Inheritance()
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 
-@DiscriminatorValue(value= "Person")
+
 public abstract class Person {
 	
 	@Id
 	@GeneratedValue()
 	@Column(name = "id")
-	
     private Long id;
     private Gender gender;
-    @Column(name = "firstName")
+    @Column(name = "student_name")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "student_lastN")
     private String lastName;
     private Date birth;
 

@@ -14,7 +14,7 @@ import java.util.Date;
 public class Subject {
 	@Id
     @GeneratedValue()
-	@Column(name = "id",nullable=false)
+	@Column(name = "id",nullable=false) 
     private Long id;
     private String name;
     private Integer points;
