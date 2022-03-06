@@ -1,5 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,7 +21,7 @@ public class Teacher extends Person {
 	@ManyToOne
     private Subject teaching;
 
-    @OneToMany
+	@OneToMany
     private List<Student> favorites;
 
     @OneToOne

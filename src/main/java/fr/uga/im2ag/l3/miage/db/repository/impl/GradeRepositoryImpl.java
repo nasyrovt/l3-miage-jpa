@@ -24,7 +24,7 @@ public class GradeRepositoryImpl extends BaseRepositoryImpl implements GradeRepo
     @Override
     public List<Grade> findHighestGrades(int limit) {
     	
-    	String jpql = "select g from Grade g ORDER BY value";
+    	String jpql = "select g from Grade g order by g.value DESC";
     	return   entityManager.createQuery(jpql,Grade.class).setMaxResults(limit).getResultList();
        
     }

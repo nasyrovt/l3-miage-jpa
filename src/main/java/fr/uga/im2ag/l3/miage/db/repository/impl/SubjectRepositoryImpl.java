@@ -42,7 +42,7 @@ public class SubjectRepositoryImpl extends BaseRepositoryImpl implements Subject
     @Override
     public Collection<Teacher> findTeachers(Long id) {
         // TODO
-    	 String jql = "select t from Teacher t where t.id="+id;
+    	 String jql = "select t from Teacher t where t.teaching.id="+id;
     	// Collection<Teacher> coll = new Collection<Teacher>(entityManager.createQuery(jql, Subject.class).getResultList());
         return (Collection<Teacher> )entityManager.createQuery(jql, Teacher.class).getResultList() ;
     }

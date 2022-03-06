@@ -1,6 +1,7 @@
 package fr.uga.im2ag.l3.miage.db.repository;
 
 import com.github.javafaker.Faker;
+
 import fr.uga.im2ag.l3.miage.db.model.Grade;
 import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.model.Person;

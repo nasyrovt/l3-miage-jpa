@@ -54,7 +54,7 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
     			+ "group by s.firstName , s.lastName HAVING avg(g.value*g.weight)>="+minAverage , Student.class );
     	
     
-    TypedQuery<Double> q = entityManager.createQuery("select avg(g.value * g.weight) from Student s join s.grades g group by s.firstName , s.lastName" ,Double.class);
+    //TypedQuery<Double> q = entityManager.createQuery("select avg(g.value*g.weight) from Student s join s.grades g group by s.firstName , s.lastName" ,Double.class);
     
               
         return query.getResultList();

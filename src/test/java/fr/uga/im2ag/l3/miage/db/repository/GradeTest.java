@@ -28,81 +28,115 @@ class GradeTest extends Base {
 
     @Test
     void shouldSaveGrade() {
+    
     	
     	Subject subject = Fixtures.createSubject();
-    	//subject.setId((long)1);
      	subject.setName("Math");
      	subject.setHours((float) 5.0);
      	 // Create a date object
-     	@SuppressWarnings("deprecation")
+        @SuppressWarnings("deprecation")
+        Date StartDate = new Date(2022,2,28);
+
+        @SuppressWarnings("deprecation")
+     	Date EndDate = new Date(2022,3,1);
      	
-		Date d = new Date(2022,2,28);
-     	@SuppressWarnings("deprecation")
-     	Date e = new Date(2022,3,1);
-     	
-     	subject.setStart(d);
+     	subject.setStart(StartDate);
      	subject.setPoints(5);
-     	subject.setEnd(e);
+     	subject.setEnd(EndDate);
      	
-    	 final var grade = Fixtures.createGrade(subject) ;
+    	 final var Grade = Fixtures.createGrade(subject) ;
     	 
-    	
-    	 
-    	
+
     	 entityManager.getTransaction().begin();
-    	  entityManager.persist(subject); 
-    	 gradeRepository.save(grade);
+         entityManager.persist(subject);
+    	 gradeRepository.save(Grade);
     	 entityManager.getTransaction().commit();
     	 entityManager.detach(subject);
-    	 entityManager.detach(grade);
+    	 entityManager.detach(Grade);
     	 
-    	 var pGrade = gradeRepository.findById(grade.getId());
-    	 assertThat(pGrade).isNotNull().isNotSameAs(grade);
-         assertThat(pGrade.getValue()).isEqualTo(grade.getValue());
-         assertThat(pGrade.getWeight()).isEqualTo(grade.getWeight());
+    	 var pGrade = gradeRepository.findById(Grade.getId());
+    	 assertThat(pGrade).isNotNull().isNotSameAs(Grade);
+         assertThat(pGrade.getValue()).isEqualTo(Grade.getValue());
+         assertThat(pGrade.getWeight()).isEqualTo(Grade.getWeight());
     }
 
     @Test
     void shouldFailUpgradeGrade() {
-        // TODO, ici tester que la mise à jour n'a pas eu lieu.
+    	final var Subject = Fixtures.createSubject();
+        final var Grade = Fixtures.createGrade(Subject);
+
+        float CurrentGrade = Grade.getValue();
+        entityManager.getTransaction().begin();
+        entityManager.persist(Subject);
+        gradeRepository.save(Grade);
+        gradeRepository.findById(Grade.getId()).setValue(2000f); // updating value after saved
+        entityManager.getTransaction().commit();
+        entityManager.detach(Grade);
+
+        
+        var Result = gradeRepository.findById(Grade.getId());
+        
+        assertThat(Result.getValue()).isEqualTo(CurrentGrade);
+        assertThat(Result.getValue()).isNotEqualTo(2000f);
     }
 
     @Test
     void shouldFindHighestGrades() {
-        // TODO
-    	gradeRepository.findHighestGrades(15);
+    	final var Subject = Fixtures.createSubject();
+        final var FirstGrade = Fixtures.createGrade(Subject);
+        final var SecondGrade = Fixtures.createGrade(Subject);
+        final var ThirdGrade = Fixtures.createGrade(Subject);
+
+        entityManager.getTransaction().begin();
+        // need to persist the Subject to avoid error
+        entityManager.persist(Subject);
+        gradeRepository.save(FirstGrade);
+        gradeRepository.save(SecondGrade);
+        gradeRepository.save(ThirdGrade);
+        entityManager.getTransaction().commit();
+        
+        FirstGrade.setValue((float) 10.2);
+        SecondGrade.setValue((float) 15.4);
+        ThirdGrade.setValue((float) 18.0);
+
+        var Result = gradeRepository.findHighestGrades(1);
+
+        assertThat(Result).isNotNull();
+        assertThat(Result.size()).isEqualTo(1);
+        assertThat(Result.get(0).getValue()).isEqualTo(ThirdGrade.getValue());
     }
 
     @Test
     void shouldFindHighestGradesBySubject() {
-        // TODO
-    	final var subject = Fixtures.createSubject();
-   	 //subject.setId((long)1);
-    	subject.setName("Physics");
-    	subject.setHours((float) 5.0);
-    	 // Create a date object
-    	Date d = new Date(2022,2,28);
-    	subject.setStart(d);
-    	subject.setPoints(5);
-    	subject.setEnd(d);
-    	entityManager.getTransaction().begin();
-    	entityManager.persist(subject);
+
+        final var Subject = Fixtures.createSubject();
+
+    	Subject.setName("BD-JPA");
+    	Subject.setHours((float) 6.0);
+    	Date StartEndDate = new Date(2022,2,28);
+
+        Subject.setStart(StartEndDate);
+    	Subject.setPoints(5);
+    	Subject.setEnd(StartEndDate);
+
+        entityManager.getTransaction().begin();
+    	entityManager.persist(Subject);
     	entityManager.getTransaction().commit();
-   	 	entityManager.detach(subject);
+   	 	entityManager.detach(Subject);
    	 	
-    	gradeRepository.findHighestGradesBySubject(5, subject);
+    	gradeRepository.findHighestGradesBySubject(5, Subject);
     	
-    	final var subject_2 = Fixtures.createSubject();
-      	 //subject.setId((long)1);
-       	subject.setName("GEO");
-       	subject.setHours((float) 2.0);
-       	 // Create a date object
-       	Date data = new Date(2022,2,28);
-       	subject.setStart(data);
-       	subject.setPoints(5);
-       	subject.setEnd(data);
+    	final var OtherSubject = Fixtures.createSubject();
+
+       	Subject.setName("CL&IHM");
+       	Subject.setHours((float) 2.0);
+       	Date OtherStartEndDate = new Date(2022,2,28);
+
+        Subject.setStart(OtherStartEndDate);
+       	Subject.setPoints(5);
+       	Subject.setEnd(OtherStartEndDate);
        	
-       	gradeRepository.findHighestGradesBySubject(5, subject_2);
+       	gradeRepository.findHighestGradesBySubject(5, OtherSubject);
        	
     }
 

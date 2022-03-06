@@ -19,6 +19,7 @@ public abstract class Person {
 	@GeneratedValue()
 	@Column(name = "id")
     private Long id;
+
     private Gender gender;
 
     @Column(name = "student_name")
@@ -26,6 +27,7 @@ public abstract class Person {
 
     @Column(name = "student_lastN")
     private String lastName;
+
     private Date birth;
 
     public Long getId() {

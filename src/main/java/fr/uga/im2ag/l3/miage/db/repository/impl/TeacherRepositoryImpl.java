@@ -1,10 +1,13 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
 import fr.uga.im2ag.l3.miage.db.repository.api.TeacherRepository;
+import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 import fr.uga.im2ag.l3.miage.db.model.Teacher;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import java.util.List;
 
 public class TeacherRepositoryImpl extends BaseRepositoryImpl implements TeacherRepository {
@@ -21,8 +24,10 @@ public class TeacherRepositoryImpl extends BaseRepositoryImpl implements Teacher
 
     @Override
     public Teacher findHeadingGraduationClassByYearAndName(Integer year, String name) {
-        String jql = "select firstName , lastName from Teacher JOIN heading h where h.year="+year+"h,name="+name;
-        return entityManager.createNamedQuery(jql, Teacher.class).getSingleResult();
+    	TypedQuery<Teacher> query =  (TypedQuery<Teacher>) entityManager.createQuery("select t from Teacher t JOIN t.heading h where h.year=:year AND h.name=:name");
+        return query
+  			  .setParameter("name", name)
+  			  .setParameter("year", year).getSingleResult();
     }
 
     @Override

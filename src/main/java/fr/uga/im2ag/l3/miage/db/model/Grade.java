@@ -9,10 +9,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 public class Grade {
 
-    @Id
+	@Id
     @GeneratedValue()
 	@Column(name = "id")
     private Long id;
@@ -22,6 +23,7 @@ public class Grade {
     
     @Column(name = "gradevalue")
     private Float value;
+
     private Float weight;
 
     public Long getId() {
