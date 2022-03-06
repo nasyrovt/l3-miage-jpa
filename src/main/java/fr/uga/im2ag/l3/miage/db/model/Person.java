@@ -9,10 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
+
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
-
-
 public abstract class Person {
 	
 	@Id
@@ -20,8 +20,10 @@ public abstract class Person {
 	@Column(name = "id")
     private Long id;
     private Gender gender;
+
     @Column(name = "student_name")
     private String firstName;
+
     @Column(name = "student_lastN")
     private String lastName;
     private Date birth;

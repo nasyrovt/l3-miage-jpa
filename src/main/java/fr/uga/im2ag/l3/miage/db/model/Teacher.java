@@ -9,16 +9,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 @Entity
 @Table(name = "Teacher")
 @DiscriminatorValue(value = "TEACHER")
-
-// TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class Teacher extends Person {
+
 	@ManyToOne
     private Subject teaching;
-	@OneToMany
+
+    @OneToMany
     private List<Student> favorites;
+
     @OneToOne
     private GraduationClass heading;
 

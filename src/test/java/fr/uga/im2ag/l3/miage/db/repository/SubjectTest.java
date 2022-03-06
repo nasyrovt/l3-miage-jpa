@@ -42,7 +42,6 @@ class SubjectTest extends Base {
 
     @Test
     void shouldFindTeachersForSubject() {
-        // TODO
     	
     	subjectRepository.findTeachers(null);
     	subjectRepository.findTeachers((long) 200);

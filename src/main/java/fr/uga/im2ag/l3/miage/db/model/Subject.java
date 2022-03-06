@@ -6,20 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import java.util.Date;
+
+
 @Entity
 @Table(name = "Subject")
-// TODO ajouter une named query pour une des requêtes à faire dans le repository
 public class Subject {
+
 	@Id
     @GeneratedValue()
 	@Column(name = "id",nullable=false) 
     private Long id;
+
     private String name;
     private Integer points;
     private Float hours;
     private Date start;
+
     @Column(name = "end_date")
     private Date end;
 

@@ -21,7 +21,7 @@ public class GraduationClassRepositoryImpl extends BaseRepositoryImpl implements
     	
     	TypedQuery<GraduationClass> query = entityManager.createQuery(
     			  "SELECT g FROM GraduationClass AS g WHERE g.name = :name AND g.year = :year" , GraduationClass.class);
-    	System.out.print("On est la");		
+    			
     	if( query
     			  .setParameter("name", name)
     			  .setParameter("year", year)

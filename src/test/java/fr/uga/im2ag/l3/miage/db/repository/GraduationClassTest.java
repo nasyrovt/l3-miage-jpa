@@ -29,7 +29,6 @@ class GraduationClassTest extends Base {
 
     @Test
     void shouldSaveClass() {
-        // TODO
    	final var gClass = Fixtures.createClass() ; 
    	
    	
@@ -48,9 +47,9 @@ class GraduationClassTest extends Base {
     @Test
     void shouldFindByYearAndName() {
     	final var gClass = Fixtures.createClass();
-    	gClass.setName("Math");
-    	gClass.setYear(2012);
-    	gClass.setStudents(null);
+        gClass.setStudents(null);
+    	gClass.setName("BD-JPA");
+    	gClass.setYear(2015);
     	entityManager.getTransaction().begin();
     	entityManager.persist(gClass);
     	entityManager.getTransaction().commit();

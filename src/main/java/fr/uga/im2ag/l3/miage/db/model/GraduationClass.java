@@ -10,18 +10,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-@Entity
 
-// TODO ajouter une named query pour une des requêtes à faire dans le repository
+
+@Entity
 public class GraduationClass {
+
 	@Id
 	@GeneratedValue()
 	@Column(name = "id") 
     private Long id;
+
 	@Column(name = "Grad_name")
     private String name;
+
 	@Column(name = "Grad_year")
     private Integer year;
+
     @OneToMany
     private List<Student> students;
 

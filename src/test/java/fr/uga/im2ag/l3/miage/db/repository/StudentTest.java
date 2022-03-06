@@ -33,14 +33,14 @@ class StudentTest extends Base {
 
     @Test
     void shouldSaveStudent() {
-    	final var gclass = Fixtures.createClass();
-    	gclass.setName("L3MIAGE");
-    	gclass.setYear(2018);
-    	gclass.setStudents(null);
-        final var student = Fixtures.createStudent(gclass);
+    	final var GraduationClass = Fixtures.createClass();
+    	GraduationClass.setName("L3MIAGE");
+    	GraduationClass.setYear(2022);
+    	GraduationClass.setStudents(null);
+        final var student = Fixtures.createStudent(GraduationClass);
         
         entityManager.getTransaction().begin();
-        entityManager.persist(gclass);
+        entityManager.persist(GraduationClass);
         studentRepository.save(student);
         entityManager.getTransaction().commit();
         entityManager.detach(student);
@@ -50,78 +50,77 @@ class StudentTest extends Base {
         assertThat(pStudent.getFirstName()).isEqualTo(student.getFirstName());
         assertThat(pStudent.getLastName()).isEqualTo(student.getLastName());
         assertThat(pStudent.getGender()).isEqualTo(student.getGender());
-     //   assertThat(pStudent.getBirth()).isEqualTo(student.getBirth());
 
 
     }
 
     @Test
     void shouldFindStudentHavingGradeAverageAbove() {
-        // TODO
     	Subject subject = Fixtures.createSubject();
     	
-     	subject.setName("Math");
+     	subject.setName("BD-JPA");
      	subject.setHours((float) 5.0);
      	
-     	 // Create a date object
+     	 // Create a StartDate and EndDate object
      	@SuppressWarnings("deprecation")
-     	
-		Date d = new Date(2022,2,28);
+		Date StartDate = new Date(2022,2,28);
      	@SuppressWarnings("deprecation")
-     	Date e = new Date(2022,3,1);
+     	Date EndDate = new Date(2022,3,1);
      	
-     	subject.setStart(d);
+     	subject.setStart(StartDate);
      	subject.setPoints(5);
-     	subject.setEnd(e);
+     	subject.setEnd(EndDate);
      	
      	
    	 	
-   	 	//creation de la variable grade_a
+   	 	//creation de la variable FirstGrade
    	 	
-    	var grade_a = Fixtures.createGrade(subject);
-    	grade_a.setValue(10.0f);
-    	grade_a.setWeight(1.5f);
+    	var FirstGrade = Fixtures.createGrade(subject);
+    	FirstGrade.setValue(10.0f);
+    	FirstGrade.setWeight(1.5f);
     	
-    	
+    	var SecondGrade = Fixtures.createGrade(subject);
+    	SecondGrade.setValue(12.0f);
+    	SecondGrade.setWeight(1.5f);
    	 	
-   	 final var gclass = Fixtures.createClass();
- 	gclass.setName("L3MIAGE");
- 	gclass.setYear(2018);
- 	gclass.setStudents(null);
+   	 final var GraduationClass = Fixtures.createClass();
+ 	GraduationClass.setName("L3MIAGE");
+ 	GraduationClass.setYear(2018);
+ 	GraduationClass.setStudents(null);
      
- 	final var student = Fixtures.createStudent(gclass);
-     student.setFirstName("Dmitrii");
+ 	final var student = Fixtures.createStudent(GraduationClass);
+     student.setFirstName("Alfredo");
      
      student.setGender(Gender.MALE);
      
-     Date Dmitrii_bth = new Date(1999,3,18);
-     student.setBirth(Dmitrii_bth);
+     Date StudentBirthDate = new Date(1997,3,22);
+     student.setBirth(StudentBirthDate);
      
-     List<Grade> list=new ArrayList<Grade>(); 
-     list.add(grade_a);
+     List<Grade> ListOfGrades=new ArrayList<Grade>();
+     ListOfGrades.add(FirstGrade);
+     ListOfGrades.add(SecondGrade);
      
-     student.setGrades( list);
-     student.setBelongTo(gclass);
-     student.setLastName("Crivoi");
-     
+     student.setGrades( ListOfGrades);
+     student.setBelongTo(GraduationClass);
+     student.setLastName("Cappucino");
+
      entityManager.getTransaction().begin();
      
      entityManager.persist(subject);
-     entityManager.persist(gclass);
- 	entityManager.persist(grade_a);
- 	entityManager.persist(student);
- 	
- 	entityManager.getTransaction().commit();
-	 
- 	entityManager.detach(subject);
- 	  entityManager.detach(gclass);
-	 	entityManager.detach(grade_a);
+     entityManager.persist(GraduationClass);
+     entityManager.persist(FirstGrade);
+     entityManager.persist(SecondGrade);
+     entityManager.persist(student);
+
+     entityManager.getTransaction().commit();
+
+     entityManager.detach(subject);
+     entityManager.detach(GraduationClass);
+     entityManager.detach(FirstGrade);
+     entityManager.detach(SecondGrade);
 	 entityManager.detach(student);
-     
-     
-   	 	
-   	 	
-    	studentRepository.findStudentHavingGradeAverageAbove(10);
+
+     studentRepository.findStudentHavingGradeAverageAbove(16.5f);
     }
 
 }

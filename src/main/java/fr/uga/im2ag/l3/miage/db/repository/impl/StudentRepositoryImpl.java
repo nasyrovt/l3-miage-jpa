@@ -1,9 +1,12 @@
 package fr.uga.im2ag.l3.miage.db.repository.impl;
 
 import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
+import fr.uga.im2ag.l3.miage.db.model.Grade;
+import fr.uga.im2ag.l3.miage.db.model.GraduationClass;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,19 +48,16 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
     }
 
     @Override
-    public List<Student> findStudentHavingGradeAverageAbove(float minAverage) {
+    public List<Student> findStudentHavingGradeAverageAbove( float minAverage) {
         // TODO
-    String jql = "select  s.firstName, s.lastName from Student s join Grade g "
-    			+ "group by s.firstName , s.lastName HAVING avg(g.value*g.weight)>"+minAverage;
+    	TypedQuery<Student> query = entityManager.createQuery("select  s   from Student s join s.grades g  "
+    			+ "group by s.firstName , s.lastName HAVING avg(g.value*g.weight)>="+minAverage , Student.class );
     	
-    List<Object[]> results =  entityManager.createQuery(jql, Object[].class).setMaxResults(5).getResultList();
-        
-        List<Student> students = new ArrayList<Student>(); 
-        for(Object r : results) {
-        	System.out.println(r);
-        }
-        
-        return null ;
+    
+    TypedQuery<Double> q = entityManager.createQuery("select avg(g.value * g.weight) from Student s join s.grades g group by s.firstName , s.lastName" ,Double.class);
+    
+              
+        return query.getResultList();
     	
     }
 }

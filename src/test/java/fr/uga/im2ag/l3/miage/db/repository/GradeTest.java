@@ -28,8 +28,6 @@ class GradeTest extends Base {
 
     @Test
     void shouldSaveGrade() {
-        // TODO
-    
     	
     	Subject subject = Fixtures.createSubject();
     	//subject.setId((long)1);
@@ -91,6 +89,7 @@ class GradeTest extends Base {
     	entityManager.persist(subject);
     	entityManager.getTransaction().commit();
    	 	entityManager.detach(subject);
+   	 	
     	gradeRepository.findHighestGradesBySubject(5, subject);
     	
     	final var subject_2 = Fixtures.createSubject();
@@ -102,6 +101,7 @@ class GradeTest extends Base {
        	subject.setStart(data);
        	subject.setPoints(5);
        	subject.setEnd(data);
+       	
        	gradeRepository.findHighestGradesBySubject(5, subject_2);
        	
     }
